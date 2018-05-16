@@ -22,6 +22,11 @@ public class Person {
         this.person = person;
     }
 
+    @JsonIgnore
+    public void setId(int id){
+        person.setId(id);
+    }
+
     public List<Pass> getPasses() {
         return person.getPasses().stream().map(pass -> new Pass(pass)).collect(Collectors.toList());
     }

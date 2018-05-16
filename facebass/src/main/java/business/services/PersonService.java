@@ -12,7 +12,10 @@ import org.springframework.stereotype.Service;
 public class PersonService {
 
     @Autowired
-    private PersonRepository personRepo;
+    protected PersonRepository personRepo;
+
+    @Autowired
+    private PassService passService;
 
     public boolean login(String email, String password) {
 
@@ -45,7 +48,22 @@ public class PersonService {
         person.addPass(pass.getPass());
 
         personRepo.save(person);
+
+        pass.owner(new Person(person));
+        passService.create(pass);
     }
 
+    public void update(Person person){
 
+        person.setId(personRepo.findByEmail(person.getEmail()).getId());
+        personRepo.save(person.getPerson());
+    }
+
+    public void updatePassword(String email, String password){
+
+        Person_ person = personRepo.findByEmail(email);
+        person.setPassword(password);
+        personRepo.save(person);
+
+    }
 }

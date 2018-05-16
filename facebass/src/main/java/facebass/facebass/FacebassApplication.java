@@ -9,7 +9,7 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 @SpringBootApplication
 @EntityScan(basePackages = {"dataAccess.entities"})
 @EnableJpaRepositories("dataAccess.repositories")
-@ComponentScan({"dataAccess", "business", "communication"})
+@ComponentScan(basePackages = {"dataAccess", "business", "communication"})
 public class FacebassApplication {
 
     public static void main(String[] args) {

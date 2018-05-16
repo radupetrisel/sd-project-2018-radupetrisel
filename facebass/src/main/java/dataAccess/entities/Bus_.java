@@ -41,4 +41,21 @@ public class Bus_ {
     public void setName(String name) {
         this.name = name;
     }
+
+    public void addStation(Station_ station){
+        this.stations.add(station);
+    }
+
+    @Override
+    public boolean equals(Object o) {
+
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Bus_ bus_ = (Bus_) o;
+
+        if (id != bus_.id) return false;
+        return name.equals(bus_.name);
+    }
+
 }

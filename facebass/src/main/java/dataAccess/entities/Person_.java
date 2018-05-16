@@ -1,12 +1,14 @@
 package dataAccess.entities;
 
 import com.sun.org.apache.xml.internal.security.utils.Base64;
+import org.hibernate.annotations.DynamicUpdate;
 
 import javax.persistence.*;
 import java.util.List;
 
 @Entity
 @Table(name = "persons")
+@DynamicUpdate
 public class Person_ {
 
     @Id

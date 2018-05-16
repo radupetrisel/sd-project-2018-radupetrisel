@@ -3,7 +3,9 @@ package business.dtos;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import dataAccess.entities.Pass_;
+import org.apache.tomcat.jni.Local;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 public class Pass {
@@ -19,12 +21,12 @@ public class Pass {
         this.pass = pass;
     }
 
-    public Date getExpiryDate() {
+    public LocalDate getExpiryDate() {
         return pass.getExpiryDate();
     }
 
     @JsonProperty
-    public void expiryDate(Date expiryDate) {
+    public void expiryDate(LocalDate expiryDate) {
         pass.setExpiryDate(expiryDate);
     }
 

@@ -38,6 +38,10 @@ public class Bus {
         bus.setName(name);
     }
 
+    public void addStation(Station station){
+        bus.addStation(station.getStation());
+    }
+
     public Bus_ getBus(){
         return this.bus;
     }

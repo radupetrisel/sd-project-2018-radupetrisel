@@ -1,7 +1,7 @@
 package dataAccess.entities;
 
 import javax.persistence.*;
-import java.util.Date;
+import java.time.LocalDate;
 
 @Entity
 @Table(name = "passes")
@@ -20,7 +20,7 @@ public class Pass_ {
     private Bus_ bus;
 
     @Column(name = "expiry_date")
-    private Date expiryDate;
+    private LocalDate expiryDate;
 
     public int getId() {
         return id;
@@ -30,11 +30,11 @@ public class Pass_ {
         this.id = id;
     }
 
-    public Date getExpiryDate() {
+    public LocalDate getExpiryDate() {
         return expiryDate;
     }
 
-    public void setExpiryDate(Date expiryDate) {
+    public void setExpiryDate(LocalDate expiryDate) {
         this.expiryDate = expiryDate;
     }
 
