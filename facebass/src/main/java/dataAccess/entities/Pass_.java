@@ -5,7 +5,7 @@ import java.util.Date;
 
 @Entity
 @Table(name = "passes")
-public class Pass {
+public class Pass_ {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -13,11 +13,11 @@ public class Pass {
 
     @OneToOne
     @JoinColumn
-    private Person owner;
+    private Person_ owner;
 
     @OneToOne
     @JoinColumn
-    private Bus bus;
+    private Bus_ bus;
 
     @Column(name = "expiry_date")
     private Date expiryDate;
@@ -38,19 +38,19 @@ public class Pass {
         this.expiryDate = expiryDate;
     }
 
-    public Person getOwner() {
+    public Person_ getOwner() {
         return owner;
     }
 
-    public void setOwner(Person owner) {
+    public void setOwner(Person_ owner) {
         this.owner = owner;
     }
 
-    public Bus getBus() {
+    public Bus_ getBus() {
         return bus;
     }
 
-    public void setBus(Bus bus) {
+    public void setBus(Bus_ bus) {
         this.bus = bus;
     }
 }

@@ -1,11 +1,13 @@
 package dataAccess.entities;
 
+import com.sun.org.apache.xml.internal.security.utils.Base64;
+
 import javax.persistence.*;
 import java.util.List;
 
 @Entity
 @Table(name = "persons")
-public class Person {
+public class Person_ {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -23,26 +25,29 @@ public class Person {
     @Column(name = "address", nullable = false)
     private String address;
 
-    @Column(name = "email")
+    @Column(name = "email", nullable = false)
     private String email;
 
-    @Column(name = "phone_number", nullable = false)
+    @Column(name = "phone_number")
     private String phoneNumber;
 
     @Column(name = "inspector")
     private boolean inspector;
 
+    @Column(name = "password", nullable = false)
+    private String password;
+
     @Column(name = "face_api_person_id")
     private String faceApiId;
 
     @OneToMany(mappedBy = "owner")
-    private List<Pass> passes;
+    private List<Pass_> passes;
 
-    public List<Pass> getPasses() {
+    public List<Pass_> getPasses() {
         return passes;
     }
 
-    public void setPasses(List<Pass> passes) {
+    public void setPasses(List<Pass_> passes) {
         this.passes = passes;
     }
 
@@ -116,5 +121,32 @@ public class Person {
 
     public void setFaceApiId(String faceApiId) {
         this.faceApiId = faceApiId;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = Base64.encode(password.getBytes());
+    }
+
+    @Override
+    public String toString() {
+        return "Person_{" +
+                "id=" + id +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", cnp='" + cnp + '\'' +
+                ", address='" + address + '\'' +
+                ", email='" + email + '\'' +
+                ", phoneNumber='" + phoneNumber + '\'' +
+                ", inspector=" + inspector +
+                ", password='" + password + '\'' +
+                '}';
+    }
+
+    public void addPass(Pass_ pass){
+        this.passes.add(pass);
     }
 }

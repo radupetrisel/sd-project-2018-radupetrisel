@@ -5,7 +5,7 @@ import java.util.List;
 
 @Entity
 @Table(name = "buses")
-public class Bus {
+public class Bus_ {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -16,13 +16,13 @@ public class Bus {
 
     @ManyToMany
     @JoinTable(name = "stops", joinColumns = @JoinColumn(name = "id_bus"), inverseJoinColumns = @JoinColumn(name = "id_station"))
-    private List<Station> stations;
+    private List<Station_> stations;
 
-    public List<Station> getStations() {
+    public List<Station_> getStations() {
         return stations;
     }
 
-    public void setStations(List<Station> stations) {
+    public void setStations(List<Station_> stations) {
         this.stations = stations;
     }
 

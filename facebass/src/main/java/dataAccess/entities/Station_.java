@@ -5,7 +5,7 @@ import java.util.List;
 
 @Entity
 @Table(name = "stations")
-public class Station {
+public class Station_ {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -15,13 +15,13 @@ public class Station {
     private String name;
 
     @ManyToMany(mappedBy = "stations")
-    private List<Bus> busses;
+    private List<Bus_> busses;
 
-    public List<Bus> getBusses() {
+    public List<Bus_> getBusses() {
         return busses;
     }
 
-    public void setBusses(List<Bus> busses) {
+    public void setBusses(List<Bus_> busses) {
         this.busses = busses;
     }
 
