@@ -17,6 +17,14 @@ public class Station {
     @ManyToMany(mappedBy = "stations")
     private List<Bus> busses;
 
+    public List<Bus> getBusses() {
+        return busses;
+    }
+
+    public void setBusses(List<Bus> busses) {
+        this.busses = busses;
+    }
+
     public int getId() {
         return id;
     }
@@ -31,13 +39,5 @@ public class Station {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public List<Bus> getBusses() {
-        return busses;
-    }
-
-    public void setBusses(List<Bus> busses) {
-        this.busses = busses;
     }
 }

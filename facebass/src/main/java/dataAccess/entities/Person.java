@@ -1,10 +1,6 @@
 package dataAccess.entities;
 
-import org.springframework.lang.Nullable;
-
 import javax.persistence.*;
-import javax.validation.constraints.NotNull;
-import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -15,28 +11,22 @@ public class Person {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @Column(name = "first_name")
-    @NotNull
+    @Column(name = "first_name", nullable = false)
     private String firstName;
 
-    @Column(name = "last_name")
-    @NotNull
+    @Column(name = "last_name", nullable = false)
     private String lastName;
 
-    @Column(name = "cnp")
-    @NotNull
+    @Column(name = "cnp", nullable = false)
     private String cnp;
 
-    @Column(name = "address")
-    @NotNull
+    @Column(name = "address", nullable = false)
     private String address;
 
     @Column(name = "email")
-    @Nullable
     private String email;
 
-    @Column(name = "phone_number")
-    @NotNull
+    @Column(name = "phone_number", nullable = false)
     private String phoneNumber;
 
     @Column(name = "inspector")
@@ -46,7 +36,15 @@ public class Person {
     private String faceApiId;
 
     @OneToMany(mappedBy = "owner")
-    private List<Pass> passes = new ArrayList<>();
+    private List<Pass> passes;
+
+    public List<Pass> getPasses() {
+        return passes;
+    }
+
+    public void setPasses(List<Pass> passes) {
+        this.passes = passes;
+    }
 
     public int getId() {
         return id;
@@ -118,13 +116,5 @@ public class Person {
 
     public void setFaceApiId(String faceApiId) {
         this.faceApiId = faceApiId;
-    }
-
-    public List<Pass> getPasses() {
-        return passes;
-    }
-
-    public void setPasses(List<Pass> passes) {
-        this.passes = passes;
     }
 }

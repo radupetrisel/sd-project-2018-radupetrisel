@@ -18,6 +18,14 @@ public class Bus {
     @JoinTable(name = "stops", joinColumns = @JoinColumn(name = "id_bus"), inverseJoinColumns = @JoinColumn(name = "id_station"))
     private List<Station> stations;
 
+    public List<Station> getStations() {
+        return stations;
+    }
+
+    public void setStations(List<Station> stations) {
+        this.stations = stations;
+    }
+
     public int getId() {
         return id;
     }

@@ -8,8 +8,8 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 @SpringBootApplication
 @EntityScan(basePackages = {"dataAccess.entities"})
-@EnableJpaRepositories("dataAccess.entities")
-@ComponentScan({"dataAccess"})
+@EnableJpaRepositories("dataAccess.repositories")
+@ComponentScan({"dataAccess.entities"})
 public class FacebassApplication {
 
     public static void main(String[] args) {
