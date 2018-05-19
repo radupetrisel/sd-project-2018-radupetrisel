@@ -17,12 +17,15 @@ public class PersonService {
     @Autowired
     private PassService passService;
 
-    public boolean login(String email, String password) {
+    public Person login(String email, String password) {
 
         String encrypted = Base64.encode(password.getBytes());
         Person_ person = personRepo.findByEmail(email);
 
-        return person.getPassword().equals(encrypted);
+        if (person.getPassword().equals(encrypted))
+            return new Person(person);
+
+        return null;
     }
 
     public Person get(String email){
