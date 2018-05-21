@@ -17,21 +17,20 @@ public class PersonService {
     @Autowired
     private PassService passService;
 
-    public Person login(String email, String password) {
+    public boolean login(String email, String password) {
 
         String encrypted = Base64.encode(password.getBytes());
-        Person_ person = personRepo.findByEmail(email);
-
-        if (person.getPassword().equals(encrypted))
-            return new Person(person);
-
-        return null;
+        try{
+            Person_ person = personRepo.findByEmail(email);
+            return person.getPassword().equals(encrypted);
+        } catch (Exception e) {
+            return false;
+        }
     }
 
     public Person get(String email){
-        System.out.println(email);
-        Person person = new Person(personRepo.findByEmail(email));
-        return person;
+
+        return new Person(personRepo.findByEmail(email));
     }
 
     public boolean register(Person person) {

@@ -18,7 +18,8 @@ public class PersonController {
     private PersonService personService;
 
     @PostMapping(value = "/login")
-    public Person login(@RequestBody Credential credential) {
+    public boolean login(@RequestBody Credential credential) {
+
         return personService.login(credential.getEmail(), credential.getPassword());
     }
 

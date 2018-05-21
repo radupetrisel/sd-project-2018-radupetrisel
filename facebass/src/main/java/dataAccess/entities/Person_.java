@@ -126,7 +126,7 @@ public class Person_ {
     }
 
     public String getPassword() {
-        return password;
+        return this.password;
     }
 
     public void setPassword(String password) {
